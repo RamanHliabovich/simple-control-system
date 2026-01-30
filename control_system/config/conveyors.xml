@@ -1,0 +1,11 @@
+<conveyors>
+    <conveyor id="1" name="conv101">
+        <drive name="drive1">
+            <run_outbit>M101</run_outbit>
+            <sts_inbit>MT101</sts_inbit>
+        </drive>
+        <photoeye name="photoeye1">
+            <detect_inbit>PE101</detect_inbit>
+        </photoeye>
+    </conveyor>
+</conveyors>
