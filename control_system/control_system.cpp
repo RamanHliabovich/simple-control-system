@@ -1,5 +1,7 @@
 #include "conveyor_subsystem.h"
 #include "cli_handler.h"
+#include "socket_server.h"
+
 #include <chrono>
 #include <thread>
 #include <iostream>
@@ -25,6 +27,14 @@ int main()
 	}
 
 	cli_handler cli(c_subsystem);
+
+	// Start socket server for WPF communication
+	socket_server server(c_subsystem, 5000);
+	if (!server.start())
+	{
+		std::cout << "Error: Failed to start socket server.\n";
+		return -1;
+	}
 
 	// Configuration
 	const std::chrono::milliseconds CYCLE_TIME(50); // 50ms = 20 Hz update rate
@@ -64,6 +74,7 @@ int main()
 	}
 
 	// Cleanup
+	server.stop();  // Stop the socket server
 	delete c_subsystem;
 	return 0;
 }
