@@ -13,6 +13,7 @@ private:
 	pugi::xml_node conv_node;
 	drive* mtr;
 	photoeye* pe;
+	int run_sts;
 
 public:
 	conveyor(std::string name, const pugi::xml_node  conv_node);

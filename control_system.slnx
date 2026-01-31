@@ -1,7 +1,9 @@
 <Solution>
   <Configurations>
+    <Platform Name="Any CPU" />
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="ControlSystemUI/ControlSystemUI.csproj" Id="c9437299-52c6-4a70-8a06-3df042d2af39" />
   <Project Path="control_system/control_system.vcxproj" Id="22587ee5-1da1-4136-864f-bbb8ad16349b" />
 </Solution>

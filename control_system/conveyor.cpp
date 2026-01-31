@@ -1,10 +1,11 @@
 #include "conveyor.h"
 
-conveyor::conveyor(std::string name,const pugi::xml_node conv_node)
+conveyor::conveyor(std::string name, const pugi::xml_node conv_node)
 	: name(name),
 	conv_node(conv_node),
-	mtr(nullptr), 
-	pe(nullptr)
+	mtr(nullptr),
+	pe(nullptr),
+	run_sts(0)
 {
 }
 
@@ -78,6 +79,22 @@ int conveyor::init()
 int conveyor::update()
 {
 	//std::cout << "Conveyor [" << name << "] Updating.\n";
+
+	// print out log if running state changes
+	int current_run_sts = is_running();
+	if (current_run_sts != run_sts)
+	{
+		run_sts = current_run_sts;
+		if (run_sts)
+		{
+			std::cout << "Conveyor [" << name << "] Started.\n";
+		}
+		else
+		{
+			std::cout << "Conveyor [" << name << "] Stopped.\n";
+		}
+	}
+
 	return 0;
 }
 
