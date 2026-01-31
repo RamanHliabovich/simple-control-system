@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cli_handler.cpp" />
     <ClCompile Include="control_system.cpp" />
     <ClCompile Include="conveyor.cpp" />
     <ClCompile Include="conveyor_subsystem.cpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="photoeye.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cli_handler.h" />
     <ClInclude Include="conveyor.h" />
     <ClInclude Include="conveyor_subsystem.h" />
     <ClInclude Include="drive.h" />

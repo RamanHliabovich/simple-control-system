@@ -21,5 +21,7 @@ public:
 	int start();
 	int stop();
 
+	int is_running();
+
 };
 

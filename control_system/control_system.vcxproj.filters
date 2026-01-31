@@ -33,6 +33,9 @@
     <ClCompile Include="outbit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cli_handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conveyor_subsystem.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inbit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cli_handler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

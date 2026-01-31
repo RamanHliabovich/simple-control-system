@@ -50,3 +50,8 @@ int drive::stop()
 	run_outbit->write(0); // Set run_outbit to OFF
 	return 0;
 }
+
+int drive::is_running()
+{
+	return run_outbit->read(); // Return the state of sts_inbit
+}

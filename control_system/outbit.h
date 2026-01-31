@@ -17,5 +17,6 @@ public:
 	}
 
 	void write(int value) { state = value; }
+	int read() const { return state; }
 };
 

@@ -77,6 +77,30 @@ int conveyor::init()
 
 int conveyor::update()
 {
-	std::cout << "Conveyor [" << name << "] Updating.\n";
+	//std::cout << "Conveyor [" << name << "] Updating.\n";
 	return 0;
+}
+
+int conveyor::start()
+{
+	if (mtr)
+	{
+		return mtr->start();
+	}
+	return -1;
+}
+
+int conveyor::stop()
+{
+	if (mtr)
+	{
+		return mtr->stop();
+	}
+	return -1;
+}
+
+int conveyor::is_running()
+{
+	// Placeholder implementation
+	return mtr->is_running(); // 1 if running, 0 if stopped
 }

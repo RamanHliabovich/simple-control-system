@@ -1,6 +1,10 @@
 #include "conveyor_subsystem.h"
+#include "cli_handler.h"
 #include <chrono>
 #include <thread>
+#include <iostream>
+#include <string>
+#include <conio.h>
 
 int main()
 {
@@ -20,14 +24,25 @@ int main()
 		return -1;
 	}
 
+	cli_handler cli(c_subsystem);
+
 	// Configuration
 	const std::chrono::milliseconds CYCLE_TIME(50); // 50ms = 20 Hz update rate
 
 	// Update loop
 	auto last_time = std::chrono::high_resolution_clock::now();
 
-	while (true)
+	while (!cli.is_exit_requested())
 	{
+		// Check for user input (non-blocking) Windows only
+		if (_kbhit())
+		{
+			std::string command;
+			std::cout << "> ";
+			std::getline(std::cin, command);
+			cli.process_command(command);
+		}
+
 		int result = c_subsystem->update();
 
 		// Check for shutdown signal or error

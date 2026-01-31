@@ -15,7 +15,7 @@ private:
 	photoeye* pe;
 
 public:
-	conveyor(std::string name, const pugi::xml_node conv_node);
+	conveyor(std::string name, const pugi::xml_node  conv_node);
 	~conveyor();
 
 	int init();
@@ -23,5 +23,9 @@ public:
 	int update();
 
 	std::string get_name() { return name; };
+
+	int start();
+	int stop();
+	int is_running();
 };
 

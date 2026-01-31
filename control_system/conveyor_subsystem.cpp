@@ -77,3 +77,81 @@ int conveyor_subsystem::update()
 
 	return 0;
 }
+
+
+//new functions from ai
+int conveyor_subsystem::start_conveyor(const std::string& name)
+{
+	for (auto& pair : conveyors)
+	{
+		conveyor* conv = pair.first;
+		if (conv->get_name() == name)
+		{
+			return conv->start();
+		}
+	}
+	return -1; // Conveyor not found
+}
+
+int conveyor_subsystem::stop_conveyor(const std::string& name)
+{
+	for (auto& pair : conveyors)
+	{
+		conveyor* conv = pair.first;
+		if (conv->get_name() == name)
+		{
+			return conv->stop();
+		}
+	}
+	return -1; // Conveyor not found
+}
+
+void conveyor_subsystem::start_all()
+{
+	for (auto& pair : conveyors)
+	{
+		conveyor* conv = pair.first;
+		conv->start();
+	}
+}
+
+void conveyor_subsystem::stop_all()
+{
+	for (auto& pair : conveyors)
+	{
+		conveyor* conv = pair.first;
+		conv->stop();
+	}
+}
+
+void conveyor_subsystem::print_conveyors()
+{
+	if (conveyors.empty())
+	{
+		std::cout << "No conveyors found.\n";
+		return;
+	}
+
+	std::cout << "Active Conveyors:\n";
+	for (auto& pair : conveyors)
+	{
+		conveyor* conv = pair.first;
+		int id = pair.second;
+		std::cout << "  - " << conv->get_name() << " (ID: " << id << ")\n";
+	}
+}
+
+std::string conveyor_subsystem::get_conveyor_status(const std::string& name)
+{
+	for (auto& pair : conveyors)
+	{
+		conveyor* conv = pair.first;
+		if (conv->get_name() == name)
+		{
+			int conv_run_sts = conv->is_running();
+			// Placeholder for actual status retrieval logic
+			return "Conveyor [" + name + "] is " + (conv_run_sts ? "RUNNING" : "STOPPED");
+		}
+	}
+	return "Conveyor [" + name + "] not found.";
+}

@@ -17,5 +17,12 @@ public:
 	bool parse_xml(const std::string& filename);
 	int init();
 	int update();
+
+	int start_conveyor(const std::string& name);
+	int stop_conveyor(const std::string& name);
+	void start_all();
+	void stop_all();
+	void print_conveyors();
+	std::string get_conveyor_status(const std::string& name);
 };
 
