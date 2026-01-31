@@ -8,13 +8,23 @@
         Title="Control System UI" Height="450" Width="800">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Name="StartButton" 
-                    Click="StartButton_Click" 
-                    Padding="20,10" 
-                    FontSize="16"
-                    Width="150">
-                Start
-            </Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="StartButton" 
+                        Click="StartButton_Click" 
+                        Padding="20,10" 
+                        FontSize="16"
+                        Width="150">
+                    Start
+                </Button>
+                <Button Name="StopButton"
+                        Click="StopButton_Click"
+                        Padding="20,10"
+                        FontSize="16"
+                        Width="150"
+                        Margin="10,0,0,0">
+                    Stop
+                </Button>
+            </StackPanel>
             <TextBlock Name="StatusText" 
                        Margin="0,20,0,0" 
                        TextAlignment="Center"
