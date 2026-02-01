@@ -85,9 +85,9 @@ namespace ControlSystemUI
                     if (root.TryGetProperty("status", out JsonElement statusElement))
                     {
                         string status = statusElement.GetString();
-                        return status == "success" 
-                            ? "Start command executed successfully!" 
-                            : "Command failed - check server logs";
+                        return !string.IsNullOrEmpty(status) 
+                            ? status 
+                            : "Unknown status";
                     }
 
                     if (root.TryGetProperty("error", out JsonElement errorElement))

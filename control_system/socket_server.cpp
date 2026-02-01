@@ -94,12 +94,12 @@ std::string socket_server::process_json_command(const std::string& json_command)
         if (action == "start")
         {
             int result = subsystem->start_conveyor(conveyor_name);
-            return json{{"status", result == 0 ? "success" : "failed"}}.dump();
+            return json{{"status", result == 0 ? "started succesfully" : "start failed"}}.dump();
         }
         else if (action == "stop")
         {
             int result = subsystem->stop_conveyor(conveyor_name);
-            return json{{"status", result == 0 ? "success" : "failed"}}.dump();
+            return json{{"status", result == 0 ? "stopped successfully" : "stop failed"}}.dump();
         }
         else if (action == "status")
         {
