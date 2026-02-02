@@ -28,5 +28,6 @@ public:
 	int start();
 	int stop();
 	int is_running();
+	int get_drive_outbit_state() { return mtr->get_outit_state(); }
 };
 

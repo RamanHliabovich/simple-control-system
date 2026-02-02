@@ -22,6 +22,8 @@ public:
 	int stop();
 
 	int is_running();
+	int get_outit_state() { return run_outbit->read(); }
+
 
 };
 

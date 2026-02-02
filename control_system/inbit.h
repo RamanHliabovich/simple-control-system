@@ -16,5 +16,6 @@ public:
 	}
 
 	int read()  { return state;}
+	void set_state(int new_state) { state = new_state; }
 };
 

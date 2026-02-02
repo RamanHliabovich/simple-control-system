@@ -143,6 +143,7 @@
     <ClCompile Include="outbit.cpp" />
     <ClCompile Include="photoeye.cpp" />
     <ClCompile Include="socket_server.cpp" />
+    <ClCompile Include="unity_client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cli_handler.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="outbit.h" />
     <ClInclude Include="photoeye.h" />
     <ClInclude Include="socket_server.h" />
+    <ClInclude Include="unity_client.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

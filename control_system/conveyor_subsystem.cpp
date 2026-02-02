@@ -1,10 +1,11 @@
-#include <iostream>
+﻿#include <iostream>
 #include <stdexcept>
 
 #include "conveyor_subsystem.h"
 
 conveyor_subsystem::conveyor_subsystem()
-	: conveyors()
+	: conveyors(),
+	uc(nullptr)
 {
 }
 
@@ -13,6 +14,11 @@ conveyor_subsystem::~conveyor_subsystem()
 	for (auto& pair : conveyors)
 	{
 		delete pair.first;
+	}
+
+	if (uc)
+	{
+		delete uc;
 	}
 }
 
@@ -51,6 +57,14 @@ bool conveyor_subsystem::parse_xml(const std::string& filename)
 
 int conveyor_subsystem::init()
 {
+	uc = new unity_client("127.0.0.1", 5001);
+
+	if (!uc->connect())
+	{
+		std::cout << "Conveyor Subsystem: Failed to connect to Unity client.\n";
+		return -1;
+	}
+
 	for (auto& pair : conveyors)
 	{
 		conveyor* conv = pair.first;
@@ -87,7 +101,19 @@ int conveyor_subsystem::start_conveyor(const std::string& name)
 		conveyor* conv = pair.first;
 		if (conv->get_name() == name)
 		{
-			return conv->start();
+			int result = conv->start();
+
+			bool inbit = conv->is_running();
+
+			if (uc && !uc->send_outbit_and_get_inbit(
+				conv->get_name(),
+				conv->get_drive_outbit_state(),
+				inbit))
+			{
+				std::cout << "Conveyor Subsystem: Error communicating with Unity for conveyor [" << conv->get_name() << "]\n";
+			}
+
+			return result;
 		}
 	}
 	return -1; // Conveyor not found

@@ -53,5 +53,5 @@ int drive::stop()
 
 int drive::is_running()
 {
-	return run_outbit->read(); // Return the state of sts_inbit
+	return sts_inbit->read(); // Return the state of sts_inbit
 }

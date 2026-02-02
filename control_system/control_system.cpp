@@ -1,6 +1,7 @@
 #include "conveyor_subsystem.h"
 #include "cli_handler.h"
 #include "socket_server.h"
+#include "unity_client.h"
 
 #include <chrono>
 #include <thread>
@@ -26,6 +27,7 @@ int main()
 		return -1;
 	}
 
+	//command line interface handler
 	cli_handler cli(c_subsystem);
 
 	// Start socket server for WPF communication

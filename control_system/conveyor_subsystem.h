@@ -3,12 +3,15 @@
 
 #include "conveyor.h"
 #include "pugixml.hpp"
+#include "unity_client.h"
 
 class conveyor_subsystem
 {
 private:
 	std::unordered_map<conveyor*, int> conveyors;
 	pugi::xml_document doc;
+
+	unity_client* uc;
 	
 public:
 	conveyor_subsystem();
