@@ -197,7 +197,7 @@ PublishScripts/
 # NuGet Symbol Packages
 *.snupkg
 # The packages folder can be ignored because of Package Restore
-**/[Pp]ackages/*
+/packages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
@@ -361,3 +361,39 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Unity - generated files and folders (added for Unity projects)
+# Keep .meta files tracked; do NOT ignore them.
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+ExportedObj/
+
+# Unity cache and crash logs
+sysinfo.txt
+crash.log
+
+# Packed Unity packages
+*.unitypackage
+
+# Optionally ignore generated IDE/project files (uncomment if you don't want these tracked)
+#*.csproj
+#*.unityproj
+#*.sln
+#*.suo
+#*.tmp
+#*.user
+#*.userprefs
+#*.pidb
+#*.booproj
+#*.svd
+#*.pdb
+#*.mdb
+#*.opendb
+#*.VC.db
+/_conveyorSimulation
